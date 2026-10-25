@@ -1,0 +1,1745 @@
+/*
+  Portfolio V6 — About Me and Journey & Learning.
+  Uses the tokens declared in index.css (loaded first).
+*/
+
+/* ---------- About Me ---------- */
+
+/*
+  Three bands. The introduction spans the width (heading left, copy right).
+  The development process is the centrepiece: four cards on one shared
+  perspective, fanned a few degrees around a shallow arc so the outer cards
+  turn toward the middle, each lit from the top-left with a soft contact
+  shadow under it. A rail of chevrons joins them in order and a return arc
+  runs from Test & Improve back to Explore. Below, What Drives Me sits beside
+  the grouped tools and the closing mindset.
+
+  Glow is kept to the cycle's accent lines; panels are one translucent surface
+  with one hairline border.
+*/
+
+.about {
+  --a-violet: #9b7bff;
+  --a-blue: #4f8dff;
+  --a-cyan: #2fd3e6;
+  --a-magenta: #ef5dc8;
+  --panel: rgba(17, 20, 44, 0.66);
+  --panel-line: rgba(160, 172, 255, 0.12);
+  --chip-line: rgba(170, 180, 255, 0.14);
+
+  position: relative;
+  padding: clamp(4.5rem, 10vh, 7.5rem) 0;
+  scroll-margin-top: calc(var(--nav-h) - 1.5rem);
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(45% 50% at 8% 0%, rgba(139, 108, 255, 0.12), transparent 70%),
+    radial-gradient(40% 45% at 92% 30%, rgba(47, 211, 230, 0.06), transparent 70%),
+    radial-gradient(50% 40% at 70% 100%, rgba(79, 141, 255, 0.07), transparent 70%),
+    var(--night);
+  overflow: hidden;
+}
+
+.about-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  gap: clamp(1.25rem, 2.4vw, 1.75rem);
+}
+
+/* Introduction */
+
+.about-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 4.5rem);
+  align-items: end;
+  margin-bottom: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.5rem;
+  padding: 0.5rem 0.95rem;
+  border: 1px solid rgba(155, 123, 255, 0.35);
+  border-radius: 12px;
+  background: rgba(139, 108, 255, 0.1);
+  color: #d9d0ff;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.about-badge .icon {
+  color: var(--a-violet);
+}
+
+.about-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 720;
+  font-size: clamp(2.3rem, 4.6vw, 3.9rem);
+  line-height: 1.04;
+  letter-spacing: -0.028em;
+  font-variation-settings: 'wdth' 92;
+  text-wrap: balance;
+}
+
+.about-title-learn {
+  color: var(--a-violet);
+}
+
+.about-title-build {
+  color: var(--a-blue);
+}
+
+.about-intro-copy {
+  max-width: 60ch;
+  padding-bottom: 0.35rem;
+}
+
+.about-text {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.15vw, 1.08rem);
+  line-height: 1.7;
+  text-wrap: pretty;
+}
+
+.about-text + .about-text {
+  margin-top: 1rem;
+}
+
+/* Panels */
+
+.about-panel {
+  position: relative;
+  margin: 0;
+  padding: clamp(1.25rem, 2.2vw, 1.75rem);
+  border: 1px solid var(--panel-line);
+  border-radius: 16px;
+  background: var(--panel);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+}
+
+.about-panel-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.35rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.about-panel-head h3 {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.about-panel-head h3 .icon {
+  width: 1.3rem;
+  height: 1.3rem;
+  margin-top: 0.06em;
+  color: var(--a-violet);
+}
+
+.about-drives .about-panel-head h3 .icon {
+  color: var(--a-magenta);
+}
+
+.about-tools .about-panel-head h3 .icon {
+  color: var(--a-blue);
+}
+
+.about-panel-head p {
+  margin: 0;
+  color: var(--ink-mute);
+  font-size: 0.9rem;
+}
+
+/* ---------- Process cycle ---------- */
+
+.cycle-stage {
+  --gap: clamp(2rem, 3.4vw, 3rem);
+  position: relative;
+  padding: 0.75rem clamp(0rem, 1vw, 0.75rem) 0;
+}
+
+.cycle {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cycle-step {
+  --c: var(--a-violet);
+  --ry: 6deg;
+  --tz: 0px;
+  position: relative;
+  display: flex;
+}
+
+.cycle-step[data-step='plan'] {
+  --c: var(--a-blue);
+  --ry: 2deg;
+  --tz: 16px;
+}
+.cycle-step[data-step='build'] {
+  --c: var(--a-cyan);
+  --ry: -2deg;
+  --tz: 16px;
+}
+.cycle-step[data-step='improve'] {
+  --c: var(--a-magenta);
+  --ry: -6deg;
+}
+
+/* Plate: a darker layer set back behind the card, peeking out below it. */
+.cycle-plate {
+  position: absolute;
+  inset: 0;
+  border: 1px solid color-mix(in srgb, var(--c) 26%, transparent);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--c) 12%, #080a1c);
+  box-shadow: 0 10px 24px -12px rgba(0, 0, 0, 0.8);
+  transform: perspective(1400px) rotateY(var(--ry)) rotateX(3deg) translateY(12px) scale(0.94);
+  transition:
+    transform 1100ms var(--ease-out),
+    opacity 500ms ease;
+  transition-delay: calc(var(--i) * 120ms + 60ms);
+}
+
+/* Contact shadow on the panel floor, under each card. */
+.cycle-step::before {
+  content: '';
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: -22px;
+  height: 24px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(2, 3, 12, 0.9), transparent);
+  filter: blur(6px);
+  transition: opacity 600ms ease;
+  transition-delay: calc(var(--i) * 90ms);
+}
+
+.cycle-card {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 1.25rem 1.4rem;
+  border: 1px solid color-mix(in srgb, var(--c) 42%, transparent);
+  border-radius: 16px;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.08), transparent 34%),
+    linear-gradient(180deg, color-mix(in srgb, var(--c) 15%, transparent), transparent 72%),
+    #0d1029;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.1),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.35),
+    0 1px 2px rgba(0, 0, 0, 0.45),
+    0 8px 16px -8px rgba(0, 0, 0, 0.7),
+    0 26px 44px -22px rgba(0, 0, 0, 0.85),
+    0 30px 56px -32px color-mix(in srgb, var(--c) 50%, transparent);
+  transform: perspective(1400px) rotateY(var(--ry)) rotateX(3deg) translateZ(var(--tz))
+    translate(0, 0) rotateZ(0deg) scale(1);
+  transition:
+    transform 1050ms var(--ease-out),
+    opacity 500ms ease;
+  transition-delay: calc(var(--i) * 120ms);
+}
+
+/* Accent along the card's top edge: the card's colour, lit from the left. */
+.cycle-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 18px;
+  right: 18px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--c), transparent);
+}
+
+.cycle-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.cycle-num {
+  color: var(--c);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.cycle-icon {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid color-mix(in srgb, var(--c) 30%, transparent);
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--c) 16%, transparent);
+  color: color-mix(in srgb, var(--c) 60%, white);
+}
+
+.cycle-icon .icon {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.cycle-card h4 {
+  margin: 0 0 0.55rem;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+.cycle-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+/* Link to the next step: a rail through the gap with a chevron node. */
+.cycle-link {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 100%;
+  width: var(--gap);
+  height: 2rem;
+  margin-top: -1rem;
+  display: grid;
+  place-items: center;
+  transition: opacity 400ms ease;
+  transition-delay: calc(var(--i) * 120ms + 620ms);
+}
+
+/* Each rail draws toward the next card, then its chevron node pops on. */
+.cycle-link::before {
+  content: '';
+  position: absolute;
+  inset: 50% 0 auto;
+  height: 1px;
+  background: linear-gradient(90deg, var(--c), color-mix(in srgb, var(--c) 40%, var(--a-blue)));
+  opacity: 0.8;
+  transform-origin: 0 50%;
+  transition: transform 520ms var(--ease-out);
+  transition-delay: calc(var(--i) * 120ms + 620ms);
+}
+
+.cycle-link .icon {
+  position: relative;
+  width: 1.75rem;
+  height: 1.75rem;
+  padding: 0.35rem;
+  border: 1px solid color-mix(in srgb, var(--c) 45%, transparent);
+  border-radius: 999px;
+  background: #0d1029;
+  color: color-mix(in srgb, var(--c) 60%, white);
+  transition: scale 420ms var(--ease-out);
+  transition-delay: calc(var(--i) * 120ms + 860ms);
+}
+
+/* Return arc: from the centre of Test & Improve back to the centre of
+   Explore. --col-mid is half a column, so the arc's ends sit under each
+   card's centre whatever the gap. */
+.cycle-return {
+  --col-mid: calc((100% - 3 * var(--gap)) / 8);
+  position: relative;
+  height: 5rem;
+  margin-top: 1.5rem;
+}
+
+.cycle-arc-svg {
+  position: absolute;
+  top: 0.5rem;
+  left: var(--col-mid);
+  bottom: 1rem;
+  width: calc(100% - 2 * var(--col-mid));
+  height: calc(100% - 1.5rem);
+  overflow: visible;
+}
+
+.cycle-arc {
+  fill: none;
+  stroke: url(#cycle-arc);
+  stroke-width: 2;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 3px rgba(79, 141, 255, 0.45));
+}
+
+.cycle-arc-start {
+  position: absolute;
+  top: 4px;
+  right: var(--col-mid);
+  width: 8px;
+  height: 8px;
+  margin-right: -4px;
+  border-radius: 999px;
+  background: var(--a-magenta);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--a-magenta) 22%, transparent);
+  transition:
+    opacity 300ms ease 1150ms,
+    scale 420ms var(--ease-out) 1150ms;
+}
+
+/* Revealed right to left, from Test & Improve back toward Explore. */
+.cycle-arc-svg {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1100ms var(--ease-in-out) 1200ms;
+}
+
+.cycle-arc-head {
+  position: absolute;
+  top: 0;
+  left: var(--col-mid);
+  width: 1rem;
+  height: 1rem;
+  margin-left: -0.5rem;
+  color: var(--a-violet);
+  transform: rotate(-90deg);
+  transition:
+    opacity 300ms ease 2200ms,
+    scale 420ms var(--ease-out) 2200ms;
+}
+
+.cycle-arc-head .icon {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 2;
+}
+
+.cycle-label {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2rem;
+  margin: 0;
+  padding: 0 0.9rem;
+  border: 1px solid var(--panel-line);
+  border-radius: 999px;
+  background: #11143a;
+  color: #cfd6ff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transform: translateX(-50%);
+  transition:
+    opacity 500ms ease 1700ms,
+    translate 700ms var(--ease-out) 1700ms;
+}
+
+.cycle-label .icon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--a-cyan);
+}
+
+/* The last step's link only shows in the single column, where it leads
+   down into the cycle label. */
+.cycle-link[data-return] {
+  display: none;
+}
+
+/*
+  Before the cycle assembles. Each card starts sunk below the panel and tipped
+  back, the outer ones further out and turned away, so the four fly in from
+  their own side, rise forward and fan into the arc in order, with their
+  plates trailing a beat behind. Both states use the same transform functions,
+  so every part (turn, tilt, depth, travel, roll, size) eases on its own.
+*/
+.cycle-step {
+  --fx: 0px;
+  --fry: 0deg;
+  --frz: 0deg;
+}
+.cycle-step[data-step='explore'] {
+  --fx: -120px;
+  --fry: 34deg;
+  --frz: -5deg;
+}
+.cycle-step[data-step='plan'] {
+  --fx: -40px;
+  --fry: 14deg;
+  --frz: -2deg;
+}
+.cycle-step[data-step='build'] {
+  --fx: 40px;
+  --fry: -14deg;
+  --frz: 2deg;
+}
+.cycle-step[data-step='improve'] {
+  --fx: 120px;
+  --fry: -34deg;
+  --frz: 5deg;
+}
+.about-process[data-drawn='false'] .cycle-card {
+  opacity: 0;
+  transform: perspective(1400px) rotateY(var(--fry)) rotateX(34deg) translateZ(-240px)
+    translate(var(--fx), 90px) rotateZ(var(--frz)) scale(0.9);
+}
+.about-process[data-drawn='false'] .cycle-plate {
+  opacity: 0;
+  transform: perspective(1400px) rotateY(var(--fry)) rotateX(34deg) translateY(120px) scale(0.8);
+}
+.about-process[data-drawn='false'] .cycle-link::before {
+  transform: scaleX(0);
+}
+.about-process[data-drawn='false'] .cycle-link .icon,
+.about-process[data-drawn='false'] .cycle-arc-start,
+.about-process[data-drawn='false'] .cycle-arc-head {
+  scale: 0.4;
+}
+.about-process[data-drawn='false'] .cycle-label {
+  translate: 0 14px;
+}
+.about-process[data-drawn='false'] .cycle-arc-start,
+.about-process[data-drawn='false'] .cycle-step::before,
+.about-process[data-drawn='false'] .cycle-link,
+.about-process[data-drawn='false'] .cycle-arc-head,
+.about-process[data-drawn='false'] .cycle-label {
+  opacity: 0;
+}
+.about-process[data-drawn='false'] .cycle-arc-svg {
+  clip-path: inset(0 0 0 100%);
+}
+
+/* ---------- Bottom row ---------- */
+
+.about-bottom {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  grid-template-areas:
+    'drives drives'
+    'tools mindset';
+  gap: clamp(1.25rem, 2.4vw, 1.75rem);
+  align-items: stretch;
+}
+
+.about-side {
+  display: contents;
+}
+
+.about-drives {
+  grid-area: drives;
+}
+
+.about-tools {
+  grid-area: tools;
+}
+
+.about-mindset {
+  grid-area: mindset;
+}
+
+/* What Drives Me */
+
+.drives {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.875rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.drive {
+  --c: var(--a-violet);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.25rem;
+  border: 1px solid color-mix(in srgb, var(--c) 16%, transparent);
+  border-radius: 14px;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--c) 11%, transparent),
+    rgba(10, 12, 30, 0.45) 75%
+  );
+}
+
+.drive[data-drive='problems'] {
+  --c: var(--a-blue);
+}
+.drive[data-drive='projects'] {
+  --c: var(--a-cyan);
+}
+.drive[data-drive='learning'] {
+  --c: var(--a-magenta);
+}
+
+.drive-head {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 2.5rem;
+}
+
+
+.drive-icon {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 11px;
+  background: color-mix(in srgb, var(--c) 18%, transparent);
+  color: color-mix(in srgb, var(--c) 60%, white);
+}
+
+.drive-icon .icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.drive h4 {
+  margin: 0;
+  color: color-mix(in srgb, var(--c) 30%, white);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.drive p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.drive-link {
+  align-self: flex-end;
+  margin-top: auto;
+  margin-bottom: -0.25rem;
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid color-mix(in srgb, var(--c) 40%, transparent);
+  border-radius: 999px;
+  color: color-mix(in srgb, var(--c) 60%, white);
+  transition:
+    transform 160ms var(--ease-out),
+    background-color 200ms ease,
+    border-color 200ms ease;
+}
+
+.drive-link .icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.drive-link:active {
+  transform: scale(0.94);
+}
+
+.drive-link:focus-visible {
+  border-radius: 999px;
+}
+
+/* Tools: one row per group, label column then logos. */
+
+.tool-groups {
+  display: grid;
+  margin: 0;
+}
+
+.tool-group {
+  display: grid;
+  grid-template-columns: 8rem minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-top: 1px solid var(--panel-line);
+}
+
+.tool-group:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.tool-group:last-child {
+  padding-bottom: 0;
+}
+
+.tool-group dt {
+  color: var(--ink-mute);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.tool-group dd {
+  margin: 0;
+}
+
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 2.25rem;
+  padding: 0 0.8rem 0 0.7rem;
+  border: 1px solid var(--chip-line);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tool-icon {
+  width: 1rem;
+  height: 1rem;
+  flex: none;
+  color: var(--ink-soft);
+}
+
+/* Official brand hues, lifted only where the mark is too dark on night. */
+.tool[data-tool='python'] .tool-icon { color: #5a9fd4; }
+.tool[data-tool='openjdk'] .tool-icon { color: #e8a25f; }
+.tool[data-tool='c'] .tool-icon { color: #a8b9cc; }
+.tool[data-tool='javascript'] .tool-icon { color: #f7df1e; }
+.tool[data-tool='react'] .tool-icon { color: #61dafb; }
+.tool[data-tool='vite'] .tool-icon { color: #a96bff; }
+.tool[data-tool='tailwindcss'] .tool-icon { color: #06b6d4; }
+.tool[data-tool='flask'] .tool-icon { color: #3babc3; }
+.tool[data-tool='sqlite'] .tool-icon { color: #4c9fd0; }
+.tool[data-tool='opencv'] .tool-icon { color: #7d64ff; }
+.tool[data-tool='mediapipe'] .tool-icon { color: #00a8b8; }
+.tool[data-tool='numpy'] .tool-icon { color: #4dabcf; }
+.tool[data-tool='github'] .tool-icon { color: var(--ink); }
+.tool[data-tool='cloudflarepages'] .tool-icon { color: #f38020; }
+
+/* Mindset */
+
+.about-mindset {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mindset-body {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.25rem;
+}
+
+.mindset-quote {
+  flex: 1;
+  align-self: flex-start;
+  margin: 0;
+  padding: 0.15rem 0 0.15rem 1.15rem;
+  border-left: 1px solid rgba(155, 123, 255, 0.6);
+}
+
+.mindset-quote p {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.mindset-quote p + p {
+  margin-top: 0.4rem;
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.mindset-climb {
+  flex: none;
+  width: clamp(8rem, 13vw, 12rem);
+  height: auto;
+  margin: 0 calc(clamp(1.25rem, 2.2vw, 1.75rem) * -1) calc(clamp(1.25rem, 2.2vw, 1.75rem) * -1) 0;
+}
+
+.mindset-ridge-back {
+  fill: rgba(155, 123, 255, 0.08);
+}
+
+.mindset-ridge {
+  fill: rgba(79, 141, 255, 0.13);
+}
+
+.mindset-trail {
+  fill: none;
+  stroke: var(--a-blue);
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-dasharray: 3 5;
+}
+
+.mindset-pole {
+  stroke: #cfd6ff;
+  stroke-width: 1.5;
+}
+
+.mindset-flag {
+  fill: var(--a-magenta);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .drive-link:hover {
+    background: color-mix(in srgb, var(--c) 18%, transparent);
+    border-color: var(--c);
+  }
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1179px) {
+  .about-bottom {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'drives'
+      'tools'
+      'mindset';
+  }
+  .drives {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .mindset-quote {
+    margin-bottom: 0.25rem;
+  }
+}
+
+/* Two by two: the fan and the return arc no longer read, so the cards sit
+   flat and the cycle is stated under the grid. */
+@media (max-width: 959px) {
+  .about-intro {
+    grid-template-columns: minmax(0, 1fr);
+    align-items: start;
+  }
+  .cycle {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .about-process[data-drawn] .cycle-card {
+    transform: none;
+  }
+  .about-process[data-drawn] .cycle-plate {
+    transform: translateY(8px) scaleX(0.95);
+  }
+  /* Flat cards: they slide in from alternating sides and rise into place. */
+  .about-process[data-drawn='false'] .cycle-step:nth-child(odd) .cycle-card {
+    transform: translate(-36px, 36px) rotate(-2deg) scale(0.95);
+  }
+  .about-process[data-drawn='false'] .cycle-step:nth-child(even) .cycle-card {
+    transform: translate(36px, 36px) rotate(2deg) scale(0.95);
+  }
+  .about-process[data-drawn='false'] .cycle-plate {
+    transform: translateY(48px) scaleX(0.8);
+  }
+  .cycle {
+    row-gap: 2.25rem;
+  }
+  .cycle-step[data-step='plan'] .cycle-link {
+    display: none;
+  }
+  .cycle-arc-svg,
+  .cycle-arc-head,
+  .cycle-arc-start {
+    display: none;
+  }
+  .cycle-return {
+    height: auto;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  .cycle-label {
+    position: static;
+    transform: none;
+  }
+}
+
+@media (max-width: 639px) {
+  .cycle-stage {
+    --gap: 2.25rem;
+    padding: 0;
+  }
+  .cycle {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .cycle-step[data-step='plan'] .cycle-link,
+  .cycle-link[data-return] {
+    display: grid;
+  }
+  .cycle-link {
+    top: 100%;
+    left: 50%;
+    width: 2rem;
+    height: var(--gap);
+    margin: 0 0 0 -1rem;
+  }
+  .cycle-link::before {
+    inset: 0 auto 0 50%;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, var(--c), color-mix(in srgb, var(--c) 40%, var(--a-blue)));
+    transform-origin: 50% 0;
+  }
+  .about-process[data-drawn='false'] .cycle-link::before {
+    transform: scaleY(0);
+  }
+  .cycle-link .icon {
+    transform: rotate(90deg);
+  }
+  .cycle-card-top {
+    margin-bottom: 1rem;
+  }
+  .drives {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .drive:has(.drive-link) .drive-head {
+    padding-right: 2.75rem;
+  }
+  .drive-link {
+    position: absolute;
+    top: 1.375rem;
+    right: 1.25rem;
+    margin: 0;
+  }
+  .tool-group {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+  .cycle-return {
+    margin-top: var(--gap);
+  }
+  .cycle-label {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 419px) {
+  .mindset-climb {
+    width: 6.5rem;
+  }
+  .mindset-body {
+    gap: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cycle-step::before,
+  .cycle-plate,
+  .cycle-arc-start,
+  .cycle-card,
+  .cycle-link,
+  .cycle-arc-svg,
+  .cycle-arc-head,
+  .cycle-label,
+  .cycle-link::before,
+  .cycle-link .icon {
+    transition: none;
+  }
+}
+
+/* ---------- Journey & Learning ---------- */
+
+/*
+  An ordered timeline, oldest first: date column, rail, then the step. The
+  rail's fill grows with --fill (0 to 1) as steps scroll into view and each
+  marker lights when its step is reached; that is the section's one authored
+  moment. Undated steps (the start and "now") set their label quieter.
+  Projects have no confirmed dates, so they sit in a sticky sidebar instead of
+  on the rail.
+*/
+
+.journey {
+  position: relative;
+  padding: clamp(4.5rem, 10vh, 7.5rem) 0;
+  scroll-margin-top: calc(var(--nav-h) - 1.5rem);
+  border-top: 1px solid var(--line);
+  /* Clip, not hidden: the sticky sidebar still sticks, and entrances that
+     travel sideways never widen the page. */
+  overflow-x: clip;
+  background:
+    radial-gradient(40% 40% at 100% 10%, rgba(79, 141, 255, 0.08), transparent 70%),
+    var(--night-2);
+}
+
+.journey-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.journey-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 3rem;
+  margin-bottom: clamp(2.5rem, 6vh, 4rem);
+}
+
+.journey-intro {
+  margin: 0;
+  max-width: 44ch;
+  color: var(--ink-soft);
+}
+
+.journey-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+/* Timeline */
+
+.jline {
+  --date-col: 10.5rem;
+  --gap: 2.75rem;
+  --rail-x: calc(var(--date-col) + var(--gap) / 2);
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Track and fill share the marker centre line. */
+.jline::before,
+.jline::after {
+  content: '';
+  position: absolute;
+  left: calc(var(--rail-x) - 1px);
+  top: 0.75rem;
+  bottom: 0.75rem;
+  width: 2px;
+  border-radius: 2px;
+}
+
+.jline::before {
+  background: var(--line-strong);
+}
+
+.jline::after {
+  background: linear-gradient(var(--violet), var(--blue));
+  transform: scaleY(var(--fill, 1));
+  transform-origin: top;
+  transition: transform 1100ms var(--ease-in-out);
+}
+
+.jstep {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--date-col) minmax(0, 1fr);
+  column-gap: var(--gap);
+  padding-bottom: clamp(2.25rem, 5vh, 3rem);
+}
+
+.jstep:last-child {
+  padding-bottom: 0;
+}
+
+.jstep-marker {
+  position: absolute;
+  z-index: 1;
+  left: calc(var(--rail-x) - 7px);
+  top: 0.4rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--night-2);
+  box-shadow: inset 0 0 0 2px var(--line-strong);
+  transition:
+    background-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.jstep[data-reached='true'] .jstep-marker {
+  background: var(--violet);
+  box-shadow:
+    inset 0 0 0 2px var(--violet),
+    0 0 0 5px rgba(139, 108, 255, 0.16);
+}
+
+/* "Now" is a ring with a live centre once reached. */
+.jstep[data-current][data-reached='true'] .jstep-marker {
+  background: var(--night-2);
+  box-shadow:
+    inset 0 0 0 2px var(--live),
+    0 0 0 5px rgba(58, 212, 154, 0.16);
+}
+
+.jstep[data-current][data-reached='true'] .jstep-marker::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--live);
+}
+
+.jstep-meta {
+  display: grid;
+  align-content: start;
+  gap: 0.2rem;
+  text-align: right;
+}
+
+.jstep-when {
+  font: 650 1rem/1.3 var(--font-display);
+  letter-spacing: -0.005em;
+  font-variant-numeric: tabular-nums;
+}
+
+.jstep-when-soft {
+  color: var(--ink-soft);
+  font-weight: 560;
+}
+
+.jstep-kind {
+  color: var(--ink-mute);
+  font-size: 0.86rem;
+}
+
+.jstep-body {
+  max-width: 62ch;
+}
+
+.jstep-title {
+  margin: 0;
+  font: 680 clamp(1.2rem, 1.8vw, 1.45rem) / 1.2 var(--font-display);
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+.jstep-place {
+  margin: 0.3rem 0 0;
+  color: var(--violet);
+  font-size: 0.92rem;
+  font-weight: 520;
+}
+
+.jstep-text {
+  margin: 0.6rem 0 0;
+  color: var(--ink-soft);
+}
+
+.jstep-items {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.jstep-items li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 1rem;
+  min-height: 3.25rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.jstep-item-title {
+  font-weight: 560;
+  line-height: 1.4;
+}
+
+.jstep-item-meta {
+  grid-column: 1;
+  color: var(--ink-mute);
+  font-size: 0.86rem;
+}
+
+.jstep-verify {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 44px;
+  padding: 0 0.25rem;
+  color: var(--violet);
+  font-size: 0.9rem;
+  font-weight: 560;
+  transition: color 160ms ease;
+}
+
+.jstep-verify .icon {
+  width: 0.95em;
+  height: 0.95em;
+  transition: transform 200ms var(--ease-out);
+}
+
+.jstep-also {
+  margin: 0.8rem 0 0;
+  color: var(--ink-mute);
+  font-size: 0.9rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .jstep-verify:hover {
+    color: var(--ink);
+  }
+  .jstep-verify:hover .icon {
+    transform: translate(2px, -2px);
+  }
+}
+
+/* Built alongside */
+
+.jbuilt {
+  position: sticky;
+  top: calc(var(--nav-h) + 1.5rem);
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  border: 1px solid var(--line-strong);
+  border-radius: 16px;
+  background: linear-gradient(160deg, #161a35 0%, #10132a 100%);
+}
+
+.jbuilt-title {
+  margin: 0;
+  font: 680 1.3rem/1.2 var(--font-display);
+  letter-spacing: -0.015em;
+}
+
+.jbuilt-note {
+  margin: 0.35rem 0 1.1rem;
+  color: var(--ink-mute);
+  font-size: 0.92rem;
+}
+
+.jbuilt-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.jbuilt-list li {
+  border-bottom: 1px solid var(--line);
+}
+
+.jbuilt-list a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 0.75rem;
+  row-gap: 0.15rem;
+  padding: 0.85rem 0;
+  transition: transform 160ms var(--ease-out);
+}
+
+.jbuilt-list a:active {
+  transform: scale(0.985);
+}
+
+.jbuilt-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 620;
+}
+
+.jbuilt-name .icon {
+  width: 0.9em;
+  height: 0.9em;
+  color: var(--ink-mute);
+  transition:
+    transform 200ms var(--ease-out),
+    color 160ms ease;
+}
+
+.jbuilt-cat {
+  grid-column: 1;
+  color: var(--ink-mute);
+  font-size: 0.86rem;
+}
+
+.jbuilt-state {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+.jbuilt-state[data-live='true'] {
+  border-color: rgba(58, 212, 154, 0.4);
+  color: var(--live);
+}
+
+.jbuilt-next {
+  margin-top: 1.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px dashed var(--line-strong);
+  border-radius: 12px;
+}
+
+.jbuilt-next h4 {
+  margin: 0 0 0.2rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.jbuilt-next p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .jbuilt-list a:hover .jbuilt-name .icon {
+    color: var(--violet);
+    transform: translate(2px, -2px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .journey-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .jbuilt {
+    position: static;
+  }
+}
+
+/* Phones: rail at the far left, date above the step. */
+@media (max-width: 679px) {
+  .jline {
+    --rail-x: 7px;
+  }
+  .jstep {
+    grid-template-columns: minmax(0, 1fr);
+    padding-left: 2.25rem;
+  }
+  .jstep-meta {
+    grid-auto-flow: column;
+    justify-content: start;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 399px) {
+  .jstep-items li {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .jstep-verify {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 36px;
+    justify-self: start;
+  }
+  .jbuilt-list a {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .jbuilt-state {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: start;
+    margin-top: 0.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jline::after,
+  .jstep-marker {
+    transition: none;
+  }
+}
+
+/* ---------- Scroll reveal (all sections) ---------- */
+
+/*
+  One shared entrance system for content below the Hero, on the Hero's ease.
+  Elements opt in with `data-reveal` ("up" for a single block, "stagger" for
+  its children, 80ms apart); `useScrollReveal` sets `data-revealed` once each
+  is on screen. `--rd` adds a per-element lead-in so blocks that arrive
+  together still read in order.
+
+  `data-motion` picks where a block travels from, so sections assemble rather
+  than all rising the same way:
+    left / right   slide in from that side
+    split          odd children from the left, even from the right (headers:
+                   title on one side, its note on the other)
+    tilt           rise out of the page on a tipped plane (panels, the form)
+    pop            rise with a small scale (cards in a grid, stats)
+    swing-left     turn in from the left on the Y axis (contact cards)
+  Every section header uses `split`, so each section opens on the same beat.
+
+  Each keyframe defines only its start state and fills backwards, so once it
+  ends the element is on its own resting styles, exactly where the layout
+  puts it, and hover transforms keep working. Horizontal travel only happens
+  inside sections that clip x overflow. Nothing is hidden when motion is
+  reduced, without IntersectionObserver (`html.can-reveal`), or in print. A
+  child that is itself `[data-reveal]` manages its own entrance.
+*/
+@media (prefers-reduced-motion: no-preference) {
+  .can-reveal [data-reveal='up']:not([data-revealed]),
+  .can-reveal [data-reveal='stagger']:not([data-revealed]) > :not([data-reveal]) {
+    opacity: 0;
+  }
+
+  .can-reveal [data-reveal='up'][data-revealed],
+  .can-reveal [data-reveal='stagger'][data-revealed] > :not([data-reveal]) {
+    animation: reveal-rise 820ms var(--ease-out) backwards;
+    animation-delay: calc(var(--rd, 0) * 1ms);
+  }
+
+  .can-reveal [data-reveal='stagger'][data-revealed] > :nth-child(2) { animation-delay: calc(var(--rd, 0) * 1ms + 80ms); }
+  .can-reveal [data-reveal='stagger'][data-revealed] > :nth-child(3) { animation-delay: calc(var(--rd, 0) * 1ms + 160ms); }
+  .can-reveal [data-reveal='stagger'][data-revealed] > :nth-child(4) { animation-delay: calc(var(--rd, 0) * 1ms + 240ms); }
+  .can-reveal [data-reveal='stagger'][data-revealed] > :nth-child(5) { animation-delay: calc(var(--rd, 0) * 1ms + 320ms); }
+  .can-reveal [data-reveal='stagger'][data-revealed] > :nth-child(n + 6) { animation-delay: calc(var(--rd, 0) * 1ms + 400ms); }
+
+  /* Direction variants: they change only the keyframe (and its length). */
+  .can-reveal [data-reveal='up'][data-motion='left'][data-revealed],
+  .can-reveal [data-reveal='stagger'][data-motion='left'][data-revealed] > :not([data-reveal]),
+  .can-reveal [data-reveal][data-motion='split'][data-revealed] > :nth-child(odd):not([data-reveal]) {
+    animation-name: reveal-left;
+  }
+
+  .can-reveal [data-reveal='up'][data-motion='right'][data-revealed],
+  .can-reveal [data-reveal='stagger'][data-motion='right'][data-revealed] > :not([data-reveal]),
+  .can-reveal [data-reveal][data-motion='split'][data-revealed] > :nth-child(even):not([data-reveal]) {
+    animation-name: reveal-right;
+  }
+
+  .can-reveal [data-reveal='up'][data-motion='tilt'][data-revealed],
+  .can-reveal [data-reveal='stagger'][data-motion='tilt'][data-revealed] > :not([data-reveal]) {
+    animation-name: reveal-tilt;
+    animation-duration: 1000ms;
+    transform-origin: 50% 100%;
+  }
+
+  .can-reveal [data-reveal='up'][data-motion='pop'][data-revealed],
+  .can-reveal [data-reveal='stagger'][data-motion='pop'][data-revealed] > :not([data-reveal]) {
+    animation-name: reveal-pop;
+    animation-duration: 720ms;
+  }
+
+  .can-reveal [data-reveal='stagger'][data-motion='swing-left'][data-revealed] > :not([data-reveal]) {
+    animation-name: reveal-swing-left;
+    animation-duration: 900ms;
+    transform-origin: 0 50%;
+  }
+
+  /*
+    Certificate shelf. Cards turn in from the right in order, as if slid onto
+    the shelf. The track is a scroll container with only 6px of vertical room,
+    so the motion is horizontal and scaled below 1: nothing crosses the top or
+    bottom edge. `--ci` is the card's place in the current list; cards past the
+    fifth (off screen) share one delay rather than queueing.
+  */
+  .can-reveal .certs-track[data-reveal][data-revealed] > .ccard {
+    animation-name: reveal-shelf;
+    animation-duration: 900ms;
+    animation-delay: calc(140ms + min(var(--ci, 0), 5) * 90ms);
+    transform-origin: 0 50%;
+  }
+
+  /* After a filter change the new set arrives quickly from the same side. */
+  .can-reveal .certs-track[data-reveal][data-revealed][data-swap] > .ccard {
+    animation-name: reveal-swap;
+    animation-duration: 480ms;
+    animation-delay: calc(min(var(--ci, 0), 5) * 45ms);
+  }
+
+  /* About: the mindset climb rises out of its panel, then the flag lifts. */
+  .about-mindset[data-revealed] .mindset-climb {
+    animation: climb-in 1200ms var(--ease-out) 380ms backwards;
+  }
+
+  .about-mindset[data-revealed] .mindset-flag {
+    transform-box: fill-box;
+    transform-origin: 0 50%;
+    animation: flag-in 600ms var(--ease-out) 1300ms backwards;
+  }
+
+  /* Journey: a marker settles in as its step is reached and sends out one
+     ring, then rests. */
+  .jstep[data-reached='true'] .jstep-marker {
+    animation: marker-pop 480ms var(--ease-out);
+  }
+
+  .jstep-marker::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--violet);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .jstep[data-current] .jstep-marker::before {
+    box-shadow: 0 0 0 2px var(--live);
+  }
+
+  .jstep[data-reached='true'] .jstep-marker::before {
+    animation: marker-ring 900ms var(--ease-out) 120ms;
+  }
+
+  /* Journey: a step's date and card wait until the rail reaches them, then
+     arrive from either side of the rail and settle against it. */
+  .can-reveal .jstep[data-reached='false'] .jstep-meta,
+  .can-reveal .jstep[data-reached='false'] .jstep-body {
+    opacity: 0;
+  }
+
+  .can-reveal .jstep[data-reached='true'] .jstep-meta {
+    animation: reveal-left 760ms var(--ease-out) 120ms backwards;
+  }
+
+  .can-reveal .jstep[data-reached='true'] .jstep-body {
+    animation: reveal-right 860ms var(--ease-out) 200ms backwards;
+  }
+
+  .can-reveal .jstep[data-reached='true'] .jstep-items > li {
+    animation: reveal-pop 620ms var(--ease-out) backwards;
+    animation-delay: 420ms;
+  }
+  .can-reveal .jstep[data-reached='true'] .jstep-items > li:nth-child(2) { animation-delay: 490ms; }
+  .can-reveal .jstep[data-reached='true'] .jstep-items > li:nth-child(3) { animation-delay: 560ms; }
+  .can-reveal .jstep[data-reached='true'] .jstep-items > li:nth-child(n + 4) { animation-delay: 630ms; }
+
+  /* Phones: the date sits above the card, so both come from the right. */
+  @media (max-width: 679px) {
+    .can-reveal .jstep[data-reached='true'] .jstep-meta {
+      animation-name: reveal-right;
+    }
+  }
+
+  /* Projects: when a new project takes the front, its copy follows the card
+     in, line by line, and its screenshot settles from the side it came from. */
+  .carousel-stage[data-moved] .pcard[data-pos='0'] .pcard-body > * {
+    animation: reveal-rise 640ms var(--ease-out) backwards;
+    animation-delay: 260ms;
+  }
+  .carousel-stage[data-moved] .pcard[data-pos='0'] .pcard-body > :nth-child(2) { animation-delay: 320ms; }
+  .carousel-stage[data-moved] .pcard[data-pos='0'] .pcard-body > :nth-child(3) { animation-delay: 380ms; }
+  .carousel-stage[data-moved] .pcard[data-pos='0'] .pcard-body > :nth-child(4) { animation-delay: 440ms; }
+
+  .carousel-stage[data-moved] .pcard[data-pos='0'] .pcard-shot {
+    animation: shot-in 860ms var(--ease-out) 200ms backwards;
+  }
+  .carousel-stage[data-moved][data-dir='prev'] .pcard[data-pos='0'] .pcard-shot {
+    animation-name: shot-in-prev;
+  }
+}
+
+@keyframes shot-in {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) translateX(36px) rotateY(-12deg) scale(0.96);
+  }
+}
+
+@keyframes shot-in-prev {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) translateX(-36px) rotateY(12deg) scale(0.96);
+  }
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+}
+
+@keyframes reveal-left {
+  from {
+    opacity: 0;
+    transform: translateX(-44px);
+  }
+}
+
+@keyframes reveal-right {
+  from {
+    opacity: 0;
+    transform: translateX(44px);
+  }
+}
+
+@keyframes reveal-tilt {
+  from {
+    opacity: 0;
+    transform: perspective(1200px) translateY(56px) rotateX(16deg) scale(0.96);
+  }
+}
+
+@keyframes reveal-pop {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.92);
+  }
+}
+
+@keyframes reveal-swing-left {
+  from {
+    opacity: 0;
+    transform: perspective(900px) translateX(-36px) rotateY(22deg);
+  }
+}
+
+@keyframes reveal-shelf {
+  from {
+    opacity: 0;
+    transform: perspective(900px) translateX(64px) rotateY(-20deg) scale(0.9);
+  }
+}
+
+@keyframes reveal-swap {
+  from {
+    opacity: 0;
+    transform: translateX(28px) scale(0.96);
+  }
+}
+
+@keyframes climb-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes flag-in {
+  from {
+    opacity: 0;
+    transform: scaleX(0.4);
+  }
+}
+
+@keyframes marker-pop {
+  from {
+    transform: scale(0.6);
+  }
+}
+
+@keyframes marker-ring {
+  from {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(2.6);
+  }
+}
+
+@media print {
+  [data-reveal],
+  [data-reveal] > * {
+    opacity: 1 !important;
+    animation: none !important;
+  }
+}
+
+/* ---------- Hover refinements ---------- */
+
+/*
+  Subtle, pointer-only feedback for cards and chips that had none: a 2px lift
+  or a border brighten, never a scale or colour change to body text.
+*/
+.drive {
+  transition:
+    transform 240ms var(--ease-out),
+    border-color 240ms ease;
+}
+
+.tool {
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease;
+}
+
+.tech-list li {
+  transition: color 200ms ease;
+}
+
+.tech-icon {
+  transition: color 200ms ease;
+}
+
+.jbuilt-name {
+  transition: color 160ms ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .drive:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--c) 34%, transparent);
+  }
+  .tool:hover {
+    border-color: var(--line-strong);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .tech-list li:hover {
+    color: var(--ink);
+  }
+  .tech-list li:hover .tech-icon {
+    color: var(--ink-soft);
+  }
+  .jbuilt-list a:hover .jbuilt-name {
+    color: #d3c9ff;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .drive,
+  .drive:hover {
+    transform: none;
+  }
+}

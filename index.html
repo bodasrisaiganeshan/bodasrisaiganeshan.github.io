@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070913" />
+    <title>Boda Sri Sai Ganeshan — Web &amp; Software Developer</title>
+    <meta
+      name="description"
+      content="Second-year B.Tech CSE (AI &amp; ML) student at Presidency University, Bangalore. Web and software developer building AI/ML projects — Samastam, GYM-BUDDY and IdeaSpark."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Boda Sri Sai Ganeshan" />
+    <meta property="og:title" content="Boda Sri Sai Ganeshan — Web &amp; Software Developer" />
+    <meta
+      property="og:description"
+      content="Second-year B.Tech CSE (AI &amp; ML) student at Presidency University, Bangalore, building AI/ML projects — Samastam, GYM-BUDDY and IdeaSpark."
+    />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:locale" content="en_IN" />
+    <link rel="canonical" href="%SITE_URL%/" />
+    <link rel="preload" as="image" href="/portrait.webp" type="image/webp" media="(min-width: 641px)" />
+
+    <!-- Fallback shows if scripts are disabled or the bundle fails to mount. -->
+    <style>
+      .js .fallback {
+        display: none;
+      }
+      .fallback {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 3rem 1.25rem;
+        font-family: system-ui, sans-serif;
+        color: #eceefa;
+        background: #070913;
+        line-height: 1.6;
+      }
+      .fallback h1 {
+        font-size: 2.6rem;
+        line-height: 1.05;
+      }
+      .fallback a {
+        color: #a690ff;
+      }
+    </style>
+    <script>
+      (function () {
+        var html = document.documentElement;
+        html.classList.add('js');
+        function reveal() {
+          if (document.querySelector('.fallback')) html.classList.remove('js');
+        }
+        window.addEventListener(
+          'error',
+          function (e) {
+            if (e.target && e.target.tagName === 'SCRIPT') reveal();
+          },
+          true,
+        );
+        setTimeout(reveal, 4000);
+      })();
+    </script>
+  </head>
+  <body style="margin: 0; background: #070913">
+    <div id="root">
+      <main class="fallback" id="main">
+        <h1>Boda Sri Sai Ganeshan</h1>
+        <p>B.Tech CSE (AI &amp; ML) student at Presidency University, Bangalore.</p>
+        <p>
+          I'm a second-year engineering student who learns by building practical projects — from a live
+          utility platform to computer-vision and study-planning prototypes.
+        </p>
+        <ul>
+          <li><a href="https://samastam.xyz/">Samastam</a> — live India-focused utility platform</li>
+          <li><a href="https://github.com/bodasrisaiganeshan/GYM-BUDDY">GYM-BUDDY</a> — computer-vision fitness prototype</li>
+          <li><a href="https://github.com/bodasrisaiganeshan/IdeaSpark">IdeaSpark</a> — study-planning prototype</li>
+        </ul>
+        <p>
+          <a href="https://github.com/bodasrisaiganeshan">GitHub</a> ·
+          <a href="https://www.linkedin.com/in/ganesh-boda-1a09bb3a2/">LinkedIn</a>
+        </p>
+      </main>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
